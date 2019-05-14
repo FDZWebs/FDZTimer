@@ -1,0 +1,80 @@
+<!DOCTYPE html> 
+<html lang="en-US">
+<head>
+	<title>FDZ Timer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<meta charset="utf-8" http-equiv="encoding">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="shortcut icon" type="image/png" href="favicon.png">
+	<link rel="manifest" href="manifest.json">
+	
+</head>
+<body>
+	<audio class="trackbeep1">
+		<source  src="beep.mp3" type="audio/mpeg">
+	</audio>
+	<audio class="trackbeep2">
+		<source src="beep2.mp3" type="audio/mpeg">
+	</audio>
+	<div class="maincontainer">
+		<button class="add-button">Add to home screen</button>
+		<div class="headerwrapper">
+			<h1 class="headertitle">Timer app </h1>
+		</div>
+		<div class="appwrapper">
+			<div class="settimer boxes">
+				<div class="timerh">
+					Set Timer:
+				</div>
+				<div class="textbox area1">
+					<div class="label" >
+					Minutes:
+					</div>
+					<input  type="number" pattern="[0-9]*" class="numbox" id="mins"  maxlength="3" min="0" max="999" step="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57"  oninput="javascript: if(this.value.length > this.maxLength) this.value= this.value.slice(0, this.maxLength);">
+				</div>
+				<div class="textbox area2">
+					<div class="label">
+						Seconds:
+					</div>
+					 <input  type="number" pattern="[0-9]*" class="numbox" id="secs" maxlength="3" min="0" max="999" step="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57"  oninput="javascript: if(this.value.length > this.maxLength) this.value= this.value.slice(0, this.maxLength);">
+				</div>
+			</div>
+			<div class="setbeep boxes">	
+				<div class="beeph">
+					Set off Beep:
+				</div>
+				<div class="textbox area3">
+					<div class="label">
+						Minutes:
+					</div> 
+					<input   type="number" pattern="[0-9]*" class="numbox" id="beepMins" maxlength="3" min="0" max="999" step="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57"   oninput="javascript: if(this.value.length > this.maxLength) this.value= this.value.slice(0, this.maxLength);">
+				</div>
+				<div class="textbox area4">
+					<div class="label">
+						Seconds:
+					</div> 
+					<input   type="number" pattern="[0-9]*"  class="numbox" id="beepSecs"maxlength="3" min="0" max="999" step="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57"   oninput="javascript: if(this.value.length > this.maxLength) this.value= this.value.slice(0, this.maxLength);">
+				</div>
+			</div>
+			<div class="btnwrapper">
+				<input type="submit" class="submitbtn" onclick="printValue()" name="submitbtn" value="Submit">
+				
+			</div>	
+			<div class="timerdisplaywrapper">
+				<div class="displayTimer">
+					<div class="displaycountdown"></div>					
+					<input type="submit" class="cancelTimer" name="cancel" value="Cancel" onclick="Endtimer()">
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<script src="a2hs.js"></script>
+	<script src="main.js"></script>
+	<script  src="service-worker.js"></script>
+	<script  src="sw.js"></script>
+</body>
+</html>
